@@ -1,0 +1,17 @@
+.contain-to-grid
+  %nav.top-bar{role: 'navigation', data: { topbar: true }}
+    -# left side title area
+    %ul.title-area
+      %li.name
+        .logo
+          Elvi<span class="highlight">s</span>
+    -# right side links
+    %section.top-bar-section
+      %ul.right
+        %li
+          = link_to '#' do
+            Sign In
+        %li.highlight
+          = link_to '#' do
+            Register
+

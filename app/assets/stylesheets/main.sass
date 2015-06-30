@@ -1,0 +1,40 @@
+$logo-fg: #474747
+$logo-line-color: #727272
+
+$topbar-link-indicator-color: $body-font-color
+
+// GLOBAL OVERRIDES
+span.highlight
+  color: $primary-color
+
+button,
+.button,
+input[type="submit"]
+  border-bottom: 3px solid $amber-800
+
+// LOGO IN TOPBAR
+.logo
+  font-family: $font-family-alternate
+  font-weight: $font-weight-bold
+  font-size: rem-calc(48)
+  color: $logo-fg
+  text-transform: uppercase
+  +transform(skewY(-8deg) translateY(.25em))
+  $border: 2px solid $logo-line-color
+  border-top: $border
+  border-bottom: $border
+  line-height: 1
+
+  span
+    line-height: inherit !important
+    font-size: inherit !important
+
+// TOPBAR RIGHT SECTION
+.top-bar-section
+  ul.right > li
+    &.highlight > a
+      color: $primary-color
+
+    & > a
+      font-family: $font-family-alternate
+      text-transform: uppercase

@@ -1,0 +1,22 @@
+.container
+  .row
+    .small-12.medium-6.medium-3.large-4.large-offset-4.columns.text-center
+      %h2 Register
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        .field
+          = f.label :email
+          = f.email_field :email, autofocus: true
+        .field
+          - if @minimum_password_length
+            = f.label :password do
+              Password (#{@minimum_password_length} characters minimum)
+          - else
+            = f.label :password
+          = f.password_field :password, autocomplete: "off"
+        .field
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, autocomplete: "off"
+        .actions
+          = f.submit "Sign up", class: "button radius"
+      = render "devise/shared/links"

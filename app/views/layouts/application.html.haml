@@ -7,8 +7,10 @@
     %title= content_for?(:title) ? yield(:title) : "foundation-rails"
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
-    = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
     = render 'layouts/topbar'
+    = flash[:notice]
+    = flash[:alert]
     = yield
+    = javascript_include_tag "application", 'data-turbolinks-track' => true

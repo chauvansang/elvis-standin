@@ -19,7 +19,7 @@ input[type="submit"]
   font-size: rem-calc(48)
   color: $logo-fg
   text-transform: uppercase
-  +transform(skewY(-8deg) translateY(.25em))
+  +transform(skewY(-6deg) translateY(.3em))
   $border: 2px solid $logo-line-color
   border-top: $border
   border-bottom: $border
@@ -38,3 +38,35 @@ input[type="submit"]
     & > a
       font-family: $font-family-alternate
       text-transform: uppercase
+
+// DEVISE
+h2
+  font-family: $font-family-alternate
+  text-transform: uppercase
+
+// FORM
+.field
+  position: relative
+  $v-padding: 6
+  $h-padding: 8
+
+  label
+    position: absolute
+    top: rem-calc($v-padding)
+    left: rem-calc($h-padding)
+    color: $charcoal
+    font-weight: $font-weight-semibold
+    text-transform: uppercase
+    font-size: rem-calc(12)
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]
+    +border-radius($global-radius)
+    height: auto
+    $v: rem-calc($v-padding)
+    $h: rem-calc($h-padding)
+    padding: 2em $h $v $h
+
+    &:focus
+      border-color: $primary-color

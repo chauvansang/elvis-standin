@@ -16,8 +16,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use Devise for authentication management
 gem 'devise'
 
-# Use foundation framework
-gem 'foundation-rails'
+# Use Materialize framework
+gem 'materialize-sass'
 
 # Use HAML as the templating engine
 gem 'haml-rails', '~> 0.9'

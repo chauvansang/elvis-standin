@@ -1,13 +1,14 @@
 .container
   .row
-    .small-12.columns
+    .col.s12
       -# timeline
       .timeline
         - (0..7).each do |d|
-          .timeline-mark{class: "day-#{d}"}
-            - if d == 0
-              = 1.day.ago.mday
-            - elsif d == 1
-              = Time.now.mday
-            - else
-              = (d-1).days.from_now.mday
+          .timeline-mark.valign-wrapper{class: "day-#{d}"}
+            %span.valign
+              - if d == 0
+                = 1.day.ago.mday
+              - elsif d == 1
+                = Time.now.mday
+              - else
+                = (d-1).days.from_now.mday

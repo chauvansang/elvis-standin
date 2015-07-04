@@ -1,25 +1,28 @@
+//
+// GLOBAL CONSTANTS
 $logo-fg: #474747
 $logo-line-color: #727272
-
-$topbar-link-indicator-color: $body-font-color
+$navbar-fg: color("grey", "darken-4")
 
 // GLOBAL OVERRIDES
 span.highlight
   color: $primary-color
 
-button,
-.button,
+nav
+  background-color: #fff
+
 input[type="submit"]
-  border-bottom: 3px solid $amber-800
+  display: inline
+  background: transparent
+  border: none
+  font-style: normal
 
 // LOGO IN TOPBAR
-.logo
-  font-family: $font-family-alternate
-  font-weight: $font-weight-bold
-  font-size: rem-calc(48)
-  color: $logo-fg
+.brand-logo
+  font-weight: bold
+  color: $logo-fg !important
   text-transform: uppercase
-  +transform(skewY(-6deg) translateY(.3em))
+  +transform(skewY(-6deg) translateY(.45em))
   $border: 2px solid $logo-line-color
   border-top: $border
   border-bottom: $border
@@ -29,44 +32,38 @@ input[type="submit"]
     line-height: inherit !important
     font-size: inherit !important
 
-// TOPBAR RIGHT SECTION
-.top-bar-section
-  ul.right > li
-    &.highlight > a
-      color: $primary-color
-
-    & > a
-      font-family: $font-family-alternate
-      text-transform: uppercase
-
 // DEVISE
 h2
-  font-family: $font-family-alternate
   text-transform: uppercase
 
 // FORM
 .field
   position: relative
-  $v-padding: 6
-  $h-padding: 8
+  $v-padding: 6px
+  $h-padding: 8px
+  margin-bottom: 1em
 
   label
     position: absolute
-    top: rem-calc($v-padding)
-    left: rem-calc($h-padding)
-    color: $charcoal
-    font-weight: $font-weight-semibold
+    top: $v-padding
+    left: $h-padding
+    color: color("blue-grey", "darken-4")
+    font-weight: 500
     text-transform: uppercase
-    font-size: rem-calc(12)
+    font-size: .75rem
+    cursor: pointer
 
   input[type="text"],
   input[type="email"],
   input[type="password"]
-    +border-radius($global-radius)
+    +box-sizing(border-box)
+    border: 1px solid color("grey", "lighten-2")
+    +border-radius(5px)
+    outline: none
     height: auto
-    $v: rem-calc($v-padding)
-    $h: rem-calc($h-padding)
-    padding: 2em $h $v $h
+    width: 100%
+    padding: 1.5em $h-padding $v-padding $h-padding
+    +single-box-shadow(0, 1px, 2px, 0, rgba(#000000, .1), inset)
 
     &:focus
       border-color: $primary-color

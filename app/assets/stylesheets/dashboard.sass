@@ -1,39 +1,51 @@
 // Place all the styles related to the dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$timeline-color: $tuatara
-$timeline-mark-size: 24
+$timeline-color: color("grey", "lighten-3")
+$timeline-mark-size: 2em
+$timeline-mark-hover-size: 2.5em
 $timeline-size-padding: 10%
 
 .timeline
   position: relative
   margin: 2em 0
-  border-top: 1px solid $iron
+  border-top: 1px solid $timeline-color
   +box-sizing(border-box)
-  +clearfix
+  overflow: visible
 
   .timeline-mark
-    display: block
     position: absolute
-    $size: rem-calc($timeline-mark-size)
+    $size: $timeline-mark-size
+    top: -0.5 * $size
     width: $size
     height: $size
-    // center the number
-    line-height: $size
-    text-align: center
     // center the whole mark along the axis
     +transform(translateX(-50%))
     // set style
     background-color: $primary-color
     color: white
-    font-size: rem-calc($timeline-mark-size/2)
+    font-size: .875rem
+    cursor: pointer
     +border-radius(50%)
+    +transition(all 0.25s ease-out 0s)
 
     $lower: 0
     $upper: 7
     $gap: (100% - $timeline-size-padding)/($upper - $lower + 1)
+    $colour-inactive: color("grey", "lighten-1")
+    $colours: $colour-inactive, color("blue-grey", "darken-3"), color("pink", "base"), color("green", "lighten-1"), color("light-blue", "base"), color("orange", "base"), $colour-inactive, $colour-inactive
     @for $i from $lower through $upper
       &.day-#{$i}
         left: $timeline-size-padding + $i*$gap
+        background-color: nth($colours, $i+1)
 
+    &:hover
+      $size: $timeline-mark-hover-size
+      top: -0.5 * $size
+      width: $size
+      height: $size
+
+    span
+      width: 100%
+      text-align: center
 

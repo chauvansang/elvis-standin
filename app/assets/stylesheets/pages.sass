@@ -1,5 +1,5 @@
-$splash-bg: $blue-grey-800
-$splash-fg: $white
+$splash-bg: color("blue-grey", "darken-3")
+$splash-fg: #fff
 
 .splash
   background-color: $splash-bg
@@ -8,6 +8,6 @@ $splash-fg: $white
   h1
     color: inherit
 
-@media #{$large-up}
+@media #{$large-and-up}
   .splash
     padding: 3em 0

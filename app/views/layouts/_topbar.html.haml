@@ -1,27 +1,25 @@
-.contain-to-grid
-  %nav.top-bar{role: 'navigation', data: { topbar: true }}
-    -# left side title area
-    %ul.title-area
-      %li.name
-        .logo
-          Elvi<span class="highlight">s</span>
-    -# right side links
-    %section.top-bar-section
-      - unless user_signed_in?
-        %ul.right
-          %li
-            = link_to sign_in_path do
-              Sign In
-          %li.highlight
-            = link_to register_path do
-              Register
-      - else
-        %ul.right
-          %li.has-dropdown
-            = link_to '#' do
-              = current_user.email
-              %ul.dropdown
-                %li
-                  = link_to sign_out_path do
-                    Sign Out
+-# dropdown content
+- if user_signed_in?
+  %ul#user-dropdown.dropdown-content
+    %li
+      = link_to sign_out_path do
+        Sign Out
 
+-# the navigation bar itself
+%nav
+  .nav-wrapper.container
+    = link_to '#', class: 'brand-logo' do
+      Elvi<span class="highlight">s</span>
+    %ul#nav-mobile.right.hide-on-med-and-down
+      - unless user_signed_in?
+        %li
+          = link_to sign_in_path do
+            Sign In
+        %li
+          = link_to register_path do
+            Register
+      - else
+        %li
+          = link_to '#!', class: 'dropdown-button', data: { activates: 'user-dropdown' } do
+            = current_user.email
+            %i.material-icons.right arrow_drop_down

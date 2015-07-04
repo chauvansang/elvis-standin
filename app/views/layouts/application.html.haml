@@ -10,7 +10,16 @@
     = csrf_meta_tags
   %body
     = render 'layouts/topbar'
-    = flash[:notice]
-    = flash[:alert]
+    .container
+      .row
+        .small-12.medium-6.medium-offset-3.large-4.large-offset-4.columns
+          - if flash[:notice]
+            .alert-box.info.radius{data: { alert: true }}
+              = flash[:notice]
+              %a.close &times;
+          - if flash[:alert]
+            .alert-box.alert.radius{data: { alert: true }}
+              = flash[:alert]
+              %a.close &times;
     = yield
     = javascript_include_tag "application", 'data-turbolinks-track' => true

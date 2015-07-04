@@ -7,11 +7,21 @@
           Elvi<span class="highlight">s</span>
     -# right side links
     %section.top-bar-section
-      %ul.right
-        %li
-          = link_to sign_in_path do
-            Sign In
-        %li.highlight
-          = link_to register_path do
-            Register
+      - unless user_signed_in?
+        %ul.right
+          %li
+            = link_to sign_in_path do
+              Sign In
+          %li.highlight
+            = link_to register_path do
+              Register
+      - else
+        %ul.right
+          %li.has-dropdown
+            = link_to '#' do
+              = current_user.email
+              %ul.dropdown
+                %li
+                  = link_to sign_out_path do
+                    Sign Out
 

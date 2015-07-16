@@ -231,7 +231,7 @@ DEPENDENCIES
   materialize-sass
   pg (= 0.18.1)
   rails (= 4.2.3)
-  rails_12factor (= 0.0.3)
+  rails_12factor
   react-rails (~> 1.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

@@ -30,3 +30,4 @@ Your `~/.gitconfig` should have the following settings for jizztastic git action
 [core]
   autocrlf = input
 ```
+lalalaa
